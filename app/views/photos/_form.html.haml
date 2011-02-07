@@ -1,0 +1,19 @@
+= form_for @photo do |f|
+  -if @photo.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:"
+      %ul
+        - @photo.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :s3_url, 'S3 URL'
+    = f.text_field :s3_url
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @photo.title
+%p
+  %b Description:
+  = @photo.description
+%p
+  %b S3 URL:
+  = @photo.s3_url
+
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path
