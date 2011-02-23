@@ -1,0 +1,1 @@
+task :cron => :upload_next_photo
