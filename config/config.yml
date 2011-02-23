@@ -1,0 +1,14 @@
+defaults: &defaults
+  tmp_dir: ./tmp
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
