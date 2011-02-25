@@ -34,5 +34,6 @@ class Uploader
   end
   
   def mark_as_sent photo
+    photo.mark_as_sent
   end
 end
