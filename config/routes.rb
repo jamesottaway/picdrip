@@ -1,4 +1,4 @@
-DailyFlickrUploader::Application.routes.draw do
+FlickrDripFeed::Application.routes.draw do
   devise_for :users
 
   resources :photos
