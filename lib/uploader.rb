@@ -2,23 +2,24 @@ require 'open-uri'
 require 'flickraw'
 
 class Uploader
-  FILENAME = "#{APP_CONFIG['tmp_dir']}/tmp.jpg"
-  
   def go
-    photo = Photo.next
-    return if photo.nil?
+    User.all.each do |user|
+      photo = user.next_photo
+      return if photo.nil?
+      
+      @filename = "#{APP_CONFIG['tmp_dir']}/#{photo.id}.jpg"
     
-    download_photo_to_tmp photo
-    upload_photo photo
-    mark_as_sent photo
+      download_photo_to_tmp photo
+      upload_photo photo
+      mark_as_sent photo
+    end
   end
   
   def download_photo_to_tmp photo
     uri = URI.parse(photo.s3_url)
     
-    
     open(uri) do |http|
-      open(FILENAME, "w") do |file|
+      open(@filename, "w") do |file|
         file.write(http.read)
        end
     end
@@ -30,7 +31,7 @@ class Uploader
     
     auth = flickr.auth.checkToken :auth_token => FLICKR_CONFIG['auth_token']
     
-    flickr.upload_photo FILENAME, :title => photo.title, :description => photo.description
+    flickr.upload_photo @filename, :title => photo.title, :description => photo.description
   end
   
   def mark_as_sent photo
