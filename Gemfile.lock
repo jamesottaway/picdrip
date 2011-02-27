@@ -37,8 +37,10 @@ GEM
       warden (~> 1.0.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    flickraw (0.8.3)
+    flickraw (0.8.4)
       json (>= 1.1.1)
+    flickraw-cached (20100707.1)
+      flickraw
     haml (3.0.25)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -97,7 +99,7 @@ PLATFORMS
 
 DEPENDENCIES
   devise
-  flickraw
+  flickraw-cached
   haml-rails
   heroku
   rails (= 3.0.3)
