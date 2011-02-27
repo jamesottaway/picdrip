@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   def next_photo
     photos.where(:uploaded => false).order(:created_at).first
   end
+  
+  def owns? photo
+    photos.include? photo
+  end
 end

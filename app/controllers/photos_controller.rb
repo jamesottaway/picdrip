@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.xml
   def index
-    @photos = Photo.all
+    @photos = Photo.for current_user
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,8 +18,12 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @photo }
+      if @photo.owned_by? current_user
+        format.html # show.html.erb
+        format.xml  { render :xml => @photo }
+      else
+        render :status => :unauthorized
+      end
     end
   end
 
@@ -37,12 +41,16 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
+    if @photo.not_owned_by?
+      render :status => :unauthorized
+    end
   end
 
   # POST /photos
   # POST /photos.xml
   def create
     @photo = Photo.new(params[:photo])
+    @photo.user = current_user
 
     respond_to do |format|
       if @photo.save
@@ -61,7 +69,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
-      if @photo.update_attributes(params[:photo])
+      if @photo.owned_by? current_user && @photo.update_attributes(params[:photo])
         format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -75,11 +83,15 @@ class PhotosController < ApplicationController
   # DELETE /photos/1.xml
   def destroy
     @photo = Photo.find(params[:id])
-    @photo.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(photos_url) }
-      format.xml  { head :ok }
+    
+    if @photo.owned_by? current_user
+      @photo.destroy
+      respond_to do |format|
+        format.html { redirect_to(photos_url) }
+        format.xml  { head :ok }
+      end
+    else
+      render :status => :unauthorized
     end
   end
 end

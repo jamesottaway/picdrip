@@ -5,7 +5,19 @@ class Photo < ActiveRecord::Base
   validates :s3_url, :uri => true
   validates :user_id, :presence => true
   
+  def self.for user
+    Photo.where(:user_id => user.id)
+  end
+  
   def mark_as_sent
     self.uploaded = true and self.save
+  end
+  
+  def owned_by? user
+    self.user == user
+  end
+  
+  def not_owned_by? user
+    self.user != user
   end
 end
