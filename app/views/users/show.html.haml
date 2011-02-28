@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Flickr Auth Token:
+  = @user.flickr_auth_token
+%p
+  %b Twitter Auth Token:
+  = @user.twitter_auth_token
+%p
+  %b Twitter Auth Secret:
+  = @user.twitter_auth_secret
+
+= link_to 'Edit', edit_user_path

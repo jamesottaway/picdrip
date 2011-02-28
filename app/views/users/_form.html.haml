@@ -1,0 +1,22 @@
+= form_for @user, :url => "/users/#{@user.id}" do |f|
+  -if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :flickr_auth_token, 'Flickr Auth Token'
+    = f.text_field :flickr_auth_token
+  .field
+    = f.label :twitter_auth_token, 'Twitter Auth Token'
+    = f.text_field :twitter_auth_token
+  .field
+    = f.label :twitter_auth_secret, 'Twitter Auth Secret'
+    = f.text_field :twitter_auth_secret
+  .actions
+    = f.submit 'Save'

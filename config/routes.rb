@@ -1,4 +1,8 @@
 FlickrDripFeed::Application.routes.draw do
+  get 'user' => 'users#show'
+  get 'user/edit' => 'users#edit', :as => "edit_user"
+  put 'users/:id' => 'users#update'
+
   devise_for :users
 
   resources :photos

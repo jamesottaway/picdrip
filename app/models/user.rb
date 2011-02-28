@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   has_many :photos
   
-  devise :database_authenticatable, :rememberable
+  devise :database_authenticatable, :rememberable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :flickr_auth_token, :twitter_auth_token, :twitter_auth_secret
   
   def next_photo
     photos.where(:uploaded => false).order(:created_at).first
