@@ -9,8 +9,10 @@ class Photo < ActiveRecord::Base
     Photo.where(:user_id => user.id)
   end
   
-  def mark_as_sent
-    self.uploaded = true and self.save
+  def mark_as_sent flickr_id
+    self.uploaded = true
+    self.flickr_id = flickr_id
+    self.save
   end
   
   def owned_by? user

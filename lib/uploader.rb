@@ -32,7 +32,8 @@ class Uploader
     
     auth = flickr.auth.checkToken :auth_token => user.flickr_auth_token
     
-    flickr.upload_photo @filename, :title => photo.title, :description => photo.description
+    flickr_id = flickr.upload_photo @filename, :title => photo.title, :description => photo.description
+    photo.mark_as_sent flickr_id
   end
   
   def mark_as_sent photo

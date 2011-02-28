@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110227063729) do
+ActiveRecord::Schema.define(:version => 20110228080636) do
 
   create_table "photos", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110227063729) do
     t.datetime "updated_at"
     t.boolean  "uploaded",    :default => false
     t.integer  "user_id"
+    t.string   "flickr_id"
   end
 
   create_table "users", :force => true do |t|
@@ -31,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20110227063729) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "flickr_auth_token"
+    t.string   "twitter_auth_token"
+    t.string   "twitter_auth_secret"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
