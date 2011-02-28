@@ -41,7 +41,7 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
-    if @photo.not_owned_by?
+    if @photo.not_owned_by? current_user
       render :status => :unauthorized
     end
   end
