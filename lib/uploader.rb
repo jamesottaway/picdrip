@@ -4,24 +4,22 @@ require 'twitter'
 
 class Uploader
   def initialize
-    FlickRaw.api_key = FLICKR_CONFIG['api_key']
-    FlickRaw.shared_secret = FLICKR_CONFIG['api_secret']
+    FlickRaw.api_key = FLICKR_CONFIG[:api_key]
+    FlickRaw.shared_secret = FLICKR_CONFIG[:api_secret]
     
     Twitter.configure do |t|
-      t.consumer_key = TWITTER_CONFIG['consumer_key']
-      t.consumer_secret = TWITTER_CONFIG['consumer_secret']
+      t.consumer_key = TWITTER_CONFIG[:consumer_key]
+      t.consumer_secret = TWITTER_CONFIG[:consumer_secret]
     end
   end
   
   def go
     User.all.each do |user|
-      @photo = user.next_photo
       @user = user
-      puts @photo
-      puts @user
+      @photo = user.next_photo
       
       next if @photo.nil?
-      @filename = "#{APP_CONFIG['tmp_dir']}/#{@photo.id}.jpg"
+      @filename = "#{APP_CONFIG[:tmp_dir]}/#{@photo.id}.jpg"
       
       download_to_tmp
       upload_to_flickr
