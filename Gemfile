@@ -5,6 +5,8 @@ gem 'haml-rails'
 gem 'devise'
 gem 'flickraw-cached'
 gem 'twitter'
+gem 'paperclip'
+gem 'aws-s3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

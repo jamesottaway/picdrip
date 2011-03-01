@@ -1,9 +1,13 @@
 class Photo < ActiveRecord::Base
   belongs_to :user
   
+  has_attached_file :photo,
+        :storage => :s3,
+        :s3_credentials => S3_CONFIG,
+        :path => "/:filename"
+  
   validates :title, :presence => true, :length => { :maximum => 255 }
   validates :description, :presence => true
-  validates :s3_url, :presence => true, :uri => true
   validates :user_id, :presence => true
   
   def self.for user
@@ -19,6 +23,10 @@ class Photo < ActiveRecord::Base
   def uploaded?
     id = "(#{flickr_id})" if uploaded && flickr_id
     "#{uploaded.to_s.capitalize} #{id}"
+  end
+  
+  def s3_url
+    "#{S3_CONFIG[:root_url]}/#{S3_CONFIG[:bucket]}/#{photo_file_name}"
   end
   
   def owned_by? user

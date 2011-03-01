@@ -8,3 +8,9 @@
 :twitter:
  :consumer_key: hvlljOFXH9321xzIsYNOjQ
  :consumer_secret: gQ7bfs8xuDEArKTM12tsDw1dK3mG4sNYsjVy6HPVg
+
+:s3:
+    :access_key: AKIAIGSSKCTZ3F7RZ7XA
+    :access_secret: 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
+    :bucket: flickr_drip_feed
+    :root_url: https://s3.amazonaws.com
