@@ -1,10 +1,10 @@
-app:
-  tmp_dir: ./tmp
+:app:
+  :tmp_dir: ./tmp
 
-flickr:
-  api_key: aa88bc1aa2a62c87b745cab5d3ec7610
-  api_secret: c6769fefa9141dd4
+:flickr:
+  :api_key: aa88bc1aa2a62c87b745cab5d3ec7610
+  :api_secret: c6769fefa9141dd4
 
-twitter:
- consumer_key: hvlljOFXH9321xzIsYNOjQ
- consumer_secret: gQ7bfs8xuDEArKTM12tsDw1dK3mG4sNYsjVy6HPVg
+:twitter:
+ :consumer_key: hvlljOFXH9321xzIsYNOjQ
+ :consumer_secret: gQ7bfs8xuDEArKTM12tsDw1dK3mG4sNYsjVy6HPVg
