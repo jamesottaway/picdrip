@@ -5,6 +5,8 @@ FlickrDripFeed::Application.routes.draw do
 
   get "flickr/auth"
   get "flickr/callback"
+  get "twitter/auth"
+  get "twitter/callback"
 
   devise_for :users
 

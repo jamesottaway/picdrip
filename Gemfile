@@ -5,6 +5,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'flickraw-cached'
 gem 'twitter'
+gem 'twitter_oauth'
 gem 'paperclip'
 gem 'aws-s3'
 

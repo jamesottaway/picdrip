@@ -8,6 +8,7 @@
 :twitter:
  :consumer_key: hvlljOFXH9321xzIsYNOjQ
  :consumer_secret: gQ7bfs8xuDEArKTM12tsDw1dK3mG4sNYsjVy6HPVg
+ :callback_url: http://drip.james.ottaway.mp/twitter/callback
 
 :s3:
     :access_key: AKIAIGSSKCTZ3F7RZ7XA
