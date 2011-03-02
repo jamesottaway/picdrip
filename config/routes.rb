@@ -3,6 +3,9 @@ FlickrDripFeed::Application.routes.draw do
   get 'user/edit' => 'users#edit', :as => "edit_user"
   put 'users/:id' => 'users#update'
 
+  get "flickr/auth"
+  get "flickr/callback"
+
   devise_for :users
 
   resources :photos

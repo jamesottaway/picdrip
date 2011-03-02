@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
     photos.where(:uploaded => false).order(:created_at).first
   end
   
+  def persist_flickr_token token
+    self.flickr_auth_token = token
+    self.save!
+  end
+  
   def owns? photo
     photos.include? photo
   end
