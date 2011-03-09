@@ -10,10 +10,6 @@ class Photo < ActiveRecord::Base
   validates :description, :presence => true
   validates :user_id, :presence => true
   
-  def self.for user
-    Photo.where(:user_id => user.id)
-  end
-  
   def mark_as_sent flickr_id
     self.uploaded = true
     self.flickr_id = flickr_id
@@ -27,13 +23,5 @@ class Photo < ActiveRecord::Base
   
   def s3_url
     "#{S3_CONFIG[:root_url]}/#{S3_CONFIG[:bucket]}/#{photo_file_name}"
-  end
-  
-  def owned_by? user
-    self.user == user
-  end
-  
-  def not_owned_by? user
-    self.user != user
   end
 end

@@ -19,8 +19,4 @@ class User < ActiveRecord::Base
     self.twitter_auth_secret = token.secret
     self.save
   end
-  
-  def owns? photo
-    photos.include? photo
-  end
 end
