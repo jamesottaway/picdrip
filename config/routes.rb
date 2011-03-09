@@ -1,4 +1,6 @@
 FlickrDripFeed::Application.routes.draw do
+  resources :albums
+
   get 'user' => 'users#show'
   get 'user/edit' => 'users#edit', :as => "edit_user"
   put 'users/:id' => 'users#update'
