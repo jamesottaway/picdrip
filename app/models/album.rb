@@ -7,4 +7,8 @@ class Album < ActiveRecord::Base
   validates :user_id, :presence => true
   
   accepts_nested_attributes_for :photos, :allow_destroy => true
+  
+  def next_photo
+    photos.where(:uploaded => false).order(:created_at).first
+  end
 end

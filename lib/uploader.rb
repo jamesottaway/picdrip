@@ -14,9 +14,10 @@ class Uploader
   end
   
   def go
-    User.all.each do |user|
-      @user = user
-      @photo = user.next_photo
+    Album.all.each do |album|
+      @album = album
+      @user = @album.user
+      @photo = @album.next_photo
       
       next if @photo.nil?
       @filename = "#{APP_CONFIG[:tmp_dir]}/#{@photo.id}.jpg"
