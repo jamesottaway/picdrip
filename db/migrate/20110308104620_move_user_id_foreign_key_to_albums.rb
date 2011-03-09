@@ -5,7 +5,7 @@ class MoveUserIdForeignKeyToAlbums < ActiveRecord::Migration
     
     execute <<EOF
       INSERT INTO albums (id, title, user_id)
-      SELECT users.id, 'Legacy album for ' + users.email, users.id
+      SELECT users.id, 'Flickr Drip Feed', users.id
       FROM users
 EOF
     
