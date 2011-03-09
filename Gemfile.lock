@@ -36,6 +36,7 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cancan (1.5.1)
     configuration (1.2.0)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
@@ -131,6 +132,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  cancan
   devise
   flickraw-cached
   haml-rails
