@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :album
+  load_and_authorize_resource :photo, :through => :album
   
   # GET /photos
   # GET /photos.xml
@@ -30,6 +31,8 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
+    puts @album.inspect
+    puts @photo.inspect
   end
 
   # POST /photos
@@ -37,7 +40,7 @@ class PhotosController < ApplicationController
   def create
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to(@photo, :notice => 'Photo was successfully created.') }
+        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Photo was successfully created.') }
         format.xml  { render :xml => @photo, :status => :created, :location => @photo }
       else
         format.html { render :action => "new" }
@@ -51,7 +54,7 @@ class PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
-        format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
+        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Photo was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -65,7 +68,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to(photos_url) }
+      format.html { redirect_to(album_photos_url(@album)) }
       format.xml  { head :ok }
     end
   end

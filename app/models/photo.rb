@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :album
   
   has_attached_file :photo,
         :storage => :s3,
@@ -8,7 +8,11 @@ class Photo < ActiveRecord::Base
   
   validates :title, :presence => true, :length => { :maximum => 255 }
   validates :description, :presence => true
-  validates :user_id, :presence => true
+  validates :album_id, :presence => true
+  
+  def user
+    album.user
+  end
   
   def mark_as_sent flickr_id
     self.uploaded = true

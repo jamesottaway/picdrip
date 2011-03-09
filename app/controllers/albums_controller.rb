@@ -1,9 +1,9 @@
 class AlbumsController < ApplicationController
+  load_and_authorize_resource
+  
   # GET /albums
   # GET /albums.xml
   def index
-    @albums = Album.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @albums }
@@ -13,8 +13,6 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.xml
   def show
-    @album = Album.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @album }
@@ -24,8 +22,6 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   # GET /albums/new.xml
   def new
-    @album = Album.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @album }

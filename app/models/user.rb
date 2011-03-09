@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :photos
+  has_many :albums
   
   devise :database_authenticatable, :rememberable, :validatable
 
@@ -18,5 +18,11 @@ class User < ActiveRecord::Base
     self.twitter_auth_token = token.token
     self.twitter_auth_secret = token.secret
     self.save
+  end
+  
+  def photos
+    photos = []
+    albums.each {|album| album.photos.each {|photo| photos << photo}}
+    photos
   end
 end

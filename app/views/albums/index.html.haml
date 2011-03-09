@@ -3,6 +3,7 @@
 %table
   %tr
     %th Title
+    %th Photos
     %th
     %th
     %th
@@ -10,6 +11,7 @@
   - @albums.each do |album|
     %tr
       %td= album.title
+      %td= album.photos.size
       %td= link_to 'Show', album
       %td= link_to 'Edit', edit_album_path(album)
       %td= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete

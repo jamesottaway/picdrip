@@ -12,6 +12,6 @@
   %b Uploaded:
   = @photo.uploaded?
 
-= link_to 'Edit', edit_photo_path(@photo)
+= link_to 'Edit', edit_album_photo_path(@album, @photo)
 \|
-= link_to 'Back', photos_path
+= link_to 'Back', album_photos_path(@album)

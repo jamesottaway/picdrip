@@ -7,6 +7,8 @@
   %b Description:
   = @album.description
 
+= link_to 'Photos', album_photos_path(@album)
+\|
 = link_to 'Edit', edit_album_path(@album)
 \|
 = link_to 'Back', albums_path
