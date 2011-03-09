@@ -5,4 +5,6 @@ class Album < ActiveRecord::Base
   validates :title, :presence => true
   validates :description, :presence => true
   validates :user_id, :presence => true
+  
+  accepts_nested_attributes_for :photos, :allow_destroy => true
 end
