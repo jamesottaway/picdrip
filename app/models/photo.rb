@@ -25,7 +25,7 @@ class Photo < ActiveRecord::Base
     "#{uploaded.to_s.capitalize} #{id}"
   end
   
-  def s3_url
-    "#{S3_CONFIG[:root_url]}/#{S3_CONFIG[:bucket]}/#{photo_file_name}"
+  def url
+    photo.url
   end
 end

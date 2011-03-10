@@ -29,7 +29,7 @@ class Uploader
   end
   
   def download_to_tmp
-    url = URI.parse(@photo.s3_url)
+    url = URI.parse(@photo.url)
     download url, @filename
   end
 
