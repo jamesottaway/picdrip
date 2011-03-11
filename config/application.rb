@@ -8,6 +8,14 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module FlickrDripFeed
   class Application < Rails::Application
+    # Dragonfly stuff
+    config.middleware.insert_after 'Rack::Lock', 'Dragonfly::Middleware', :images, '/media'
+    config.middleware.insert_before 'Dragonfly::Middleware', 'Rack::Cache', {
+      :verbose     => true,
+      :metastore   => "file:#{Rails.root}/tmp/dragonfly/cache/meta",
+      :entitystore => "file:#{Rails.root}/tmp/dragonfly/cache/body"
+    }
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -42,6 +50,6 @@ module FlickrDripFeed
     #Configure generators
     config.generators do |g|
          g.template_engine :haml
-     end
+    end
   end
 end

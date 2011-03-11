@@ -9,6 +9,8 @@ gem 'twitter_oauth'
 gem 'paperclip'
 gem 'aws-s3'
 gem 'cancan'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.8.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -1,6 +1,7 @@
 class Photo < ActiveRecord::Base
   belongs_to :album
   
+  image_accessor :s3
   has_attached_file :photo,
         :storage => :s3,
         :s3_credentials => S3_CONFIG,
