@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310224407) do
+ActiveRecord::Schema.define(:version => 20110311091345) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(:version => 20110310224407) do
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "photo_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "uploaded",        :default => false
+    t.boolean  "uploaded",    :default => false
     t.string   "flickr_id"
     t.integer  "album_id"
     t.string   "s3_uid"

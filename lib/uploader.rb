@@ -29,7 +29,7 @@ class Uploader
   end
   
   def download_to_tmp
-    url = URI.parse(@photo.url)
+    url = URI.parse(APP_CONFIG[:host] + @photo.url)
     download url, @filename
   end
 

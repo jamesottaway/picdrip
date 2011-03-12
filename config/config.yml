@@ -1,5 +1,6 @@
 :app:
   :tmp_dir: ./tmp
+  :host: http://localhost:3000
 
 :flickr:
   :api_key: aa88bc1aa2a62c87b745cab5d3ec7610
@@ -9,8 +10,3 @@
  :consumer_key: hvlljOFXH9321xzIsYNOjQ
  :consumer_secret: gQ7bfs8xuDEArKTM12tsDw1dK3mG4sNYsjVy6HPVg
  :callback_url: http://drip.james.ottaway.mp/twitter/callback
-
-:s3:
-    :access_key: AKIAIGSSKCTZ3F7RZ7XA
-    :access_secret: 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
-    :bucket: flickr_drip_feed

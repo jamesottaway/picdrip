@@ -2,10 +2,6 @@ class Photo < ActiveRecord::Base
   belongs_to :album
   
   image_accessor :s3
-  has_attached_file :photo,
-        :storage => :s3,
-        :s3_credentials => S3_CONFIG,
-        :path => "/:filename"
   
   validates :title, :presence => true, :length => { :maximum => 255 }
   validates :description, :presence => true
@@ -27,6 +23,6 @@ class Photo < ActiveRecord::Base
   end
   
   def url
-    photo.url
+    s3.url
   end
 end

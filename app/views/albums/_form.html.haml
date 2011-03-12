@@ -23,8 +23,8 @@
         = p.label :description
         = p.text_field :description
       .field
-        = p.label :photo
-        = p.file_field :photo
+        = p.label :s3
+        = p.file_field :s3
       .field
         - unless p.object.new_record?
           = p.label :_destroy, 'Remove'
