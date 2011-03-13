@@ -25,4 +25,12 @@ class Photo < ActiveRecord::Base
   def url
     s3.url
   end
+  
+  def small_square
+    s3.thumb('100x100#').url
+  end
+  
+  def medium
+    s3.thumb('500x500').url
+  end
 end

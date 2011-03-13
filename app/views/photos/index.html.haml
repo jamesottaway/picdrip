@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th
     %th Title
     %th Uploaded?
     %th
@@ -10,6 +11,8 @@
 
   - @photos.each do |photo|
     %tr
+      %td
+        %img{:src => photo.small_square}
       %td= photo.title
       %td= photo.uploaded?
       %td= link_to 'Show', album_photo_path(@album, photo)
