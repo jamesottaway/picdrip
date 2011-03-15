@@ -10,3 +10,7 @@
  :consumer_key: hvlljOFXH9321xzIsYNOjQ
  :consumer_secret: gQ7bfs8xuDEArKTM12tsDw1dK3mG4sNYsjVy6HPVg
  :callback_url: http://drip.james.ottaway.mp/twitter/callback
+
+:notifo:
+ :username: flickrdripfeedtest
+ :secret: c4ec07d20ad3a4d746b966d026cece7ca81f4e72
