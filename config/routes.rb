@@ -7,6 +7,8 @@ FlickrDripFeed::Application.routes.draw do
   get "flickr/callback"
   get "twitter/auth"
   get "twitter/callback"
+  get "notifo/setup"
+  put "notifo/auth"
 
   devise_for :users
 
