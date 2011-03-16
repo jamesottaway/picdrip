@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :rememberable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :flickr_auth_token, :twitter_auth_token, :twitter_auth_secret
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :flickr_auth_token, :twitter_auth_token, :twitter_auth_secret, :notifo_username
   
   def persist_flickr_token token
     self.flickr_auth_token = token

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311091345) do
+ActiveRecord::Schema.define(:version => 20110315220447) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20110311091345) do
     t.string   "flickr_auth_token"
     t.string   "twitter_auth_token"
     t.string   "twitter_auth_secret"
+    t.string   "notifo_username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
