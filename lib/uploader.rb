@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'flickraw-cached'
 require 'twitter'
+require 'notifo'
 
 class Uploader
   def initialize
@@ -25,6 +26,7 @@ class Uploader
       download_to_tmp
       upload_to_flickr
       tweet
+      push_to_notifo
     end
   end
   
@@ -51,6 +53,11 @@ class Uploader
     url = FlickRaw.url_short(info)
     
     Twitter.update("New Flickr Photo: #{@photo.title} #{url}")
+  end
+  
+  def push_to_notifo
+    notifo = Notifo.new NOTIFO_CONFIG[:username], NOTIFO_CONFIG[:secret]
+    notifo.post @user.notifo_username, "Your photo '#{@photo.title}' from your #{@album.title} album was uploaded to Flickr"
   end
   
   private
