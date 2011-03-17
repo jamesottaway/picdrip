@@ -9,6 +9,8 @@ FlickrDripFeed::Application.routes.draw do
   get "twitter/callback"
   get "notifo/setup"
   put "notifo/auth"
+  get "notifo/confirm" => "notifo#try_confirm", :as => "notifo_try_confirm"
+  put "notifo/confirm" => "notifo#do_confirm", :as => "notifo_do_confirm"
 
   devise_for :users
 

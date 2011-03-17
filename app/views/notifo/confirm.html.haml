@@ -1,0 +1,9 @@
+%h1 Notifo confirm
+
+= form_for @user, :url => notifo_do_confirm_path do |f|
+  .confirm
+    Yes, I have finished the authorisation process with Notifo.
+  .actions
+    = f.submit 'Confirm'
+
+= link_to 'Back', notifo_setup_path
