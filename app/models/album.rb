@@ -11,4 +11,13 @@ class Album < ActiveRecord::Base
   def next_photo
     photos.where(:uploaded => false).order(:created_at).first
   end
+  
+  def not_on_flickr
+    flickr_id.nil?
+  end
+  
+  def persist_flickr_id photoset_id
+    self.flickr_id = photoset_id
+    self.save
+  end
 end

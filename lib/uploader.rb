@@ -41,6 +41,13 @@ class Uploader
     
     flickr_id = @flickr.upload_photo @filename, :title => @photo.title, :description => @photo.description
     @photo.mark_as_sent flickr_id
+    
+    if @album.not_on_flickr
+      photoset = @flickr.photosets.create :title => @album.title, :description => @album.description, :primary_photo_id => flickr_id
+      @album.persist_flickr_id photoset['id']
+    else
+      @flickr.photosets.addPhoto :photoset_id => @album.flickr_id, :photo_id => @photo.flickr_id
+    end
   end
   
   def tweet
