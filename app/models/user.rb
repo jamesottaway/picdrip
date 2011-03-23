@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :albums
   
-  devise :database_authenticatable, :rememberable, :validatable
+  devise :database_authenticatable, :rememberable, :validatable, :registerable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :flickr_auth_token, :twitter_auth_token, :twitter_auth_secret, :notifo_username
   
