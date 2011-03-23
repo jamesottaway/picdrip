@@ -40,4 +40,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 group :development, :test do
   gem 'heroku'
   gem 'rspec-rails'
+  gem 'capybara'
 end
