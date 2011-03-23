@@ -1,4 +1,4 @@
-CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")
+CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
 
 APP_CONFIG = {:tmp_dir => CONFIG[:app][:tmp_dir], :host => ENV['HOST'] || CONFIG[:app][:host]}
 FLICKR_CONFIG = {:api_key => ENV['FLICKR_API_KEY'] || CONFIG[:flickr][:api_key], :api_secret => ENV['FLICKR_API_SECRET'] || CONFIG[:flickr][:api_secret]}
