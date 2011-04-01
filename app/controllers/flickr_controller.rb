@@ -12,10 +12,10 @@ class FlickrController < ApplicationController
   end
 
   def callback
+    flickr = FlickRaw::Flickr.new
     auth = flickr.auth.getToken :frob => params[:frob]
     login = flickr.test.login
     current_user.persist_flickr_token auth.token
-    puts auth.inspect
     redirect_to user_path
   end
 end
