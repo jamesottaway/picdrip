@@ -10,23 +10,16 @@ class NotifoController < ApplicationController
     notifo = Notifo.new NOTIFO_CONFIG[:username], NOTIFO_CONFIG[:secret]
     
     saved = @user.update_attributes(params[:user])
-    auth = notifo.subscribe_user @user.notifo_username
-    success = JSON.parse(auth)['status'] == 'success'
-    already_registered = JSON.parse(auth)['response_message'] == 'User is already subscribed'
-
-    respond_to do |format|
-      if already_registered
-        format.html { redirect_to user_path }
-        format.xml  { head :ok }
-      end
-      
-      if saved && success
-        format.html { redirect_to(notifo_try_confirm_path, :notice => 'Please complete the authorisation process on your device that is connected to Notifo before continuing.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "setup" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+    auth = JSON.parse notifo.subscribe_user(@user.notifo_username)
+    success = auth['status'] == 'success'
+    already_registered = auth['response_message'] == 'User is already subscribed'
+    
+    if already_registered
+      redirect_to user_path
+    elsif saved && success
+      redirect_to(notifo_try_confirm_path, :notice => 'Please complete the authorisation process on your device that is connected to Notifo before continuing.')
+    else
+      render :action => :setup
     end
   end
   
