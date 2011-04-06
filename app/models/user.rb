@@ -13,12 +13,6 @@ class User < ActiveRecord::Base
   def persist_twitter_token token
     self.twitter_auth_token = token.token
     self.twitter_auth_secret = token.secret
-    self.save
-  end
-  
-  def photos
-    photos = []
-    albums.each {|album| album.photos.each {|photo| photos << photo}}
-    photos
+    self.save!
   end
 end
