@@ -11,6 +11,7 @@ describe PhotosController do
     @controller.stub!(:album_photo_path).with(@album, @photo).and_return @album_photo_path
     
     @controller.instance_variable_set :@album, @album
+    @controller.instance_variable_set :@photo, @photo
   end
   
   context '#create' do
@@ -18,7 +19,6 @@ describe PhotosController do
       photo_params = 'values'
       params = {:photo => photo_params}
       
-      Photo.should_receive(:new).with(photo_params).and_return @photo
       @photo.should_receive(:save).and_return true
       @controller.should_receive(:redirect_to).with @album_photo_path, :notice => 'Photo was successfully created.'
       
@@ -30,7 +30,6 @@ describe PhotosController do
       photo_params = 'values'
       params = {:photo => photo_params}
 
-      Photo.should_receive(:new).with(photo_params).and_return @photo
       @photo.should_receive(:save).and_return false
       @controller.should_receive(:render).with :action => :new
 
@@ -45,7 +44,6 @@ describe PhotosController do
       photo_params = 'values'
       params = {:id => id, :photo => photo_params}
 
-      Photo.should_receive(:find).with(id).and_return @photo
       @photo.should_receive(:update_attributes).with(photo_params).and_return true
       @controller.should_receive(:redirect_to).with @album_photo_path, :notice => 'Photo was successfully updated.'
 
@@ -58,7 +56,6 @@ describe PhotosController do
       photo_params = 'values'
       params = {:id => id, :photo => photo_params}
 
-      Photo.should_receive(:find).with(id).and_return @photo
       @photo.should_receive(:update_attributes).with(photo_params).and_return false
       @controller.should_receive(:render).with :action => :edit
 
@@ -75,7 +72,6 @@ describe PhotosController do
     
       @controller.stub!(:album_photos_path).with(@album).and_return album_photos_path
     
-      Photo.should_receive(:find).with(id).and_return @photo
       @photo.should_receive(:destroy)
       @controller.should_receive(:redirect_to).with album_photos_path
     

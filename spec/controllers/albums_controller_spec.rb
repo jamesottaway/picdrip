@@ -5,6 +5,8 @@ describe AlbumsController do
     @album = stub 'album'
     
     @controller = AlbumsController.new
+    
+    @controller.instance_variable_set :@album, @album
   end
   
   context '#create' do
@@ -12,7 +14,6 @@ describe AlbumsController do
       album_params = 'values'
       params = {:album => album_params}
       
-      Album.should_receive(:new).with(album_params).and_return @album
       @album.should_receive(:save).and_return true
       @controller.should_receive(:redirect_to).with @album, :notice => 'Album was successfully created.'
       
@@ -24,7 +25,6 @@ describe AlbumsController do
       album_params = 'values'
       params = {:album => album_params}
 
-      Album.should_receive(:new).with(album_params).and_return @album
       @album.should_receive(:save).and_return false
       @controller.should_receive(:render).with :action => :new
 
@@ -39,7 +39,6 @@ describe AlbumsController do
       album_params = 'values'
       params = {:id => id, :album => album_params}
 
-      Album.should_receive(:find).with(id).and_return @album
       @album.should_receive(:update_attributes).with(album_params).and_return true
       @controller.should_receive(:redirect_to).with @album, :notice => 'Album was successfully updated.'
 
@@ -52,7 +51,6 @@ describe AlbumsController do
       album_params = 'values'
       params = {:id => id, :album => album_params}
 
-      Album.should_receive(:find).with(id).and_return @album
       @album.should_receive(:update_attributes).with(album_params).and_return false
       @controller.should_receive(:render).with :action => :edit
 
@@ -69,7 +67,6 @@ describe AlbumsController do
     
       @controller.stub!(:albums_path).and_return albums_path
     
-      Album.should_receive(:find).with(id).and_return @album
       @album.should_receive(:destroy)
       @controller.should_receive(:redirect_to).with albums_path
     

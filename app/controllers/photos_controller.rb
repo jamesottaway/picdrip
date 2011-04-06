@@ -20,8 +20,6 @@ class PhotosController < ApplicationController
 
   # POST /photos
   def create
-    @photo = Photo.new params[:photo]
-    
     if @photo.save
       redirect_to album_photo_path(@album, @photo), :notice => 'Photo was successfully created.'
     else
@@ -31,8 +29,6 @@ class PhotosController < ApplicationController
 
   # PUT /photos/1
   def update
-    @photo = Photo.find params[:id]
-    
     if @photo.update_attributes(params[:photo])
       redirect_to album_photo_path(@album, @photo), :notice => 'Photo was successfully updated.'
     else
@@ -42,7 +38,6 @@ class PhotosController < ApplicationController
 
   # DELETE /photos/1
   def destroy
-    @photo = Photo.find params[:id]
     @photo.destroy
     redirect_to album_photos_path @album
   end
