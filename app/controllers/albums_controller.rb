@@ -15,36 +15,34 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
-    @album = Album.find(params[:id])
   end
 
   # POST /albums
   def create
-    @album = Album.new(params[:album])
+    @album = Album.new params[:album]
 
-      if @album.save
-        redirect_to(@album, :notice => 'Album was successfully created.')
-      else
-        render :action => "new"
-      end
+    if @album.save
+      redirect_to(@album, :notice => 'Album was successfully created.')
+    else
+      render :action => :new
+    end
   end
 
   # PUT /albums/1
   def update
-    @album = Album.find(params[:id])
+    @album = Album.find params[:id]
 
     if @album.update_attributes(params[:album])
       redirect_to(@album, :notice => 'Album was successfully updated.')
     else
-      render :action => "edit"
+      render :action => :edit
     end
   end
 
   # DELETE /albums/1
   def destroy
-    @album = Album.find(params[:id])
+    @album = Album.find params[:id]
     @album.destroy
-
-    redirect_to(albums_url)
+    redirect_to albums_path
   end
 end
