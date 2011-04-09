@@ -14,3 +14,9 @@ User.blueprint do
   email
   password
 end
+
+Album.blueprint do
+  title
+  description
+  user { User.make }
+end

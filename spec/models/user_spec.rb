@@ -10,7 +10,6 @@ describe User do
   
   it 'should have many albums' do
     association = User.reflections[:albums]
-    association.name.should == :albums
     association.macro.should == :has_many
   end
 
