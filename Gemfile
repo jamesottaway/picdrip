@@ -41,4 +41,6 @@ group :development, :test do
   gem 'heroku'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'machinist'
+  gem 'faker'
 end
