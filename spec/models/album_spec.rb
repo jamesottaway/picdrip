@@ -17,9 +17,9 @@ describe Album do
   end
   
   it { should accept_nested_attributes_for :photos }
-  it { Album.should have_validator PresenceValidator, :on => :title }
-  it { Album.should have_validator PresenceValidator, :on => :description }
-  it { Album.should have_validator PresenceValidator, :on => :user_id }
+  it { should have_validator PresenceValidator, :on => :title }
+  it { should have_validator PresenceValidator, :on => :description }
+  it { should have_validator PresenceValidator, :on => :user_id }
   
   it 'should persist the flickr photoset id' do
     subject.should_receive(:flickr_id=).with FLICKR_ID

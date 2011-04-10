@@ -14,10 +14,10 @@ describe Photo do
     association.macro.should == :belongs_to
   end
   
-  it { Photo.should have_validator PresenceValidator, :on => :title }
-  it { Photo.should have_validator LengthValidator, :on => :title, :options => { :maximum => 255 } }
-  it { Photo.should have_validator PresenceValidator, :on => :description }
-  it { Photo.should have_validator PresenceValidator, :on => :album_id }
+  it { should have_validator PresenceValidator, :on => :title }
+  it { should have_validator LengthValidator, :on => :title, :options => { :maximum => 255 } }
+  it { should have_validator PresenceValidator, :on => :description }
+  it { should have_validator PresenceValidator, :on => :album_id }
   
   it 'should mark a photo as sent' do
     subject.should_receive(:uploaded=).with true
