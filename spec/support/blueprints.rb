@@ -20,3 +20,9 @@ Album.blueprint do
   description
   user { User.make }
 end
+
+Photo.blueprint do
+  title
+  description
+  album { Album.make }
+end

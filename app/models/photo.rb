@@ -7,10 +7,6 @@ class Photo < ActiveRecord::Base
   validates :description, :presence => true
   validates :album_id, :presence => true
   
-  def user
-    album.user
-  end
-  
   def mark_as_sent flickr_id
     self.uploaded = true
     self.flickr_id = flickr_id
