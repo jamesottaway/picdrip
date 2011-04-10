@@ -7,7 +7,7 @@ Sham.define do
   name        { Faker::Name.name }
   description { Faker::Lorem.paragraphs(3).join("\n\n") }
   email       { Faker::Internet.email }
-  password    { Faker::Lorem.words(2).join }
+  password    { 10.times.map { ('a'..'z').to_a[rand 26] }.join }
 end
 
 User.blueprint do
@@ -18,11 +18,11 @@ end
 Album.blueprint do
   title
   description
-  user { User.make }
+  user
 end
 
 Photo.blueprint do
   title
   description
-  album { Album.make }
+  album
 end
