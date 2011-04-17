@@ -10,11 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110321221153) do
+ActiveRecord::Schema.define(:version => 20110417112755) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(:version => 20110321221153) do
 
   create_table "photos", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "uploaded",    :default => false
+    t.boolean  "uploaded",                   :default => false
     t.string   "flickr_id"
     t.integer  "album_id"
     t.string   "s3_uid"
