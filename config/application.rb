@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-module FlickrDripFeed
+module PicDrip
   class Application < Rails::Application
     # Dragonfly stuff
     config.middleware.insert_before 'Rack::Lock', 'Dragonfly::Middleware', :images, '/media'

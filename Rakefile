@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-FlickrDripFeed::Application.load_tasks
+PicDrip::Application.load_tasks
