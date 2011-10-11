@@ -22,4 +22,5 @@ group :development, :test do
   gem 'machinist'
   gem 'faker'
   gem 'cardigan'
+  gem 'capybara'
 end
