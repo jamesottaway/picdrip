@@ -1,0 +1,1 @@
+[![Build Status](https://secure.travis-ci.org/jamesottaway/picdrip.png)](http://travis-ci.org/jamesottaway/picdrip)
