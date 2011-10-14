@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20110417112755) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
-    t.text     "description", :limit => 255
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(:version => 20110417112755) do
 
   create_table "photos", :force => true do |t|
     t.string   "title"
-    t.text     "description", :limit => 255
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "uploaded",                   :default => false
+    t.boolean  "uploaded",    :default => false
     t.string   "flickr_id"
     t.integer  "album_id"
     t.string   "s3_uid"

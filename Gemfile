@@ -11,7 +11,7 @@ gem 'cancan'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.8.2'
 gem 'notifo'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'pg'
 
 group :development, :test do
   gem 'heroku'
