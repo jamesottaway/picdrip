@@ -8,12 +8,21 @@ default: &default
   username: postgres
   password: postgres
 
+travis: &travis
+  <<: *postgresql
+  username: postgres
+  password:
+
 development:
   <<: *default
   database: picdrip_development
 
 test:
+<% if ENV['TRAVIS'] %>
+  <<: *travis
+<% else %>
   <<: *default
+<% end %>
   database: picdrip_test
 
 staging:
