@@ -12,6 +12,7 @@ gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.8.2'
 gem 'notifo'
 gem 'pg'
+gem 'thin'
 
 group :development, :test do
   gem 'heroku'
