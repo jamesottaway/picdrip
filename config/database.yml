@@ -1,23 +1,25 @@
-development:
+postgresql: &postgresql
   adapter: postgresql
   encoding: unicode
-  database: picdrip_development
   pool: 5
+
+default: &default
+  <<: *postgresql
   username: postgres
   password: postgres
+
+development:
+  <<: *default
+  database: picdrip_development
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: picdrip_test
-  pool: 5
-  username: postgres
-  password: postgres
+
+staging:
+  <<: *default
+  database: picdrip_staging
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: picdrip_production
-  pool: 5
-  username:
-  password:
+  <<: *default
+  database: picdrip
