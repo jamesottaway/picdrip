@@ -1,4 +1,3 @@
-@wip
 Feature: Authentication
   As a user
   I want to register and sign in

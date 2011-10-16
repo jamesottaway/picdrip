@@ -16,3 +16,13 @@ When /^I register$/ do
     page.notice.should =~ /^You have signed up successfully./
   end
 end
+
+Then /^I should be able to log in$/ do
+  visit :logout
+  on :login do |page|
+    page.email = 'user@example.com'
+    page.password = 'password'
+    page.login
+    page.notice.should == 'Signed in successfully.'
+  end
+end
