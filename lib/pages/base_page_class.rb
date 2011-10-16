@@ -11,4 +11,6 @@ class BasePageClass
   def method_missing sym, *args, &block
     @browser.send sym, *args, &block
   end
+
+  p :alert, :class => 'alert'
 end
