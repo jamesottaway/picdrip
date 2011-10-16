@@ -13,4 +13,5 @@ class BasePageClass
   end
 
   p :alert, :class => 'alert'
+  p :notice, :class => 'notice'
 end
