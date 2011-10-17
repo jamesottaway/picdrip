@@ -12,6 +12,6 @@ begin
   end
 
   desc 'Run all Cucumber features'
-  task :cucumber => ['cucumber:wip', 'cucumber:strict']
+  task :cucumber => ['db:seed', 'cucumber:wip', 'cucumber:strict']
 rescue LoadError
 end
