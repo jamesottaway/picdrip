@@ -1,7 +1,10 @@
+<% title = 'Picdrip' %>
+<% title = "#{@title_prefix} | #{title}" if @title_prefix %>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pic Drip</title>
+  <title><%= title %></title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>

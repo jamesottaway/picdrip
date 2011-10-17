@@ -13,22 +13,5 @@
     = f.label :description
     = f.text_field :description
 
-  - f.fields_for :photos do |p|
-    %fieldset
-      %legend Photo
-      .field
-        = p.label :title
-        = p.text_field :title
-      .field
-        = p.label :description
-        = p.text_field :description
-      .field
-        = p.label :s3
-        = p.file_field :s3
-      .field
-        - unless p.object.new_record?
-          = p.label :_destroy, 'Remove'
-          = p.check_box :_destroy
-
   .actions
     = f.submit 'Save'

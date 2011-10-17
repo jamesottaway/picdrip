@@ -7,6 +7,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1
   def show
+    @title_prefix = @album.title
   end
 
   # GET /albums/new
