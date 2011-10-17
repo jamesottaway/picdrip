@@ -18,3 +18,11 @@ When /^I create an Album$/ do
   	page.notice.should == 'Album was successfully created.'
   end
 end
+
+Then /^I should be able to view the Album$/ do
+  on :album do |page|
+    page.browser.title.should =~ /^New Album/
+    page.title.should == 'New Album'
+    page.description.should == 'Thanks Picdrip!'
+  end
+end

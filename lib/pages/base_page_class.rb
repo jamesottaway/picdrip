@@ -12,6 +12,10 @@ class BasePageClass
     @browser.send sym, *args, &block
   end
 
+  def browser
+    @browser
+  end
+
   p :alert, :class => 'alert'
   p :notice, :class => 'notice'
 end

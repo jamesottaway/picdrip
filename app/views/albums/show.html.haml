@@ -2,10 +2,12 @@
 
 %p
   %b Title:
-  = @album.title
+  %span#title
+    = @album.title
 %p
   %b Description:
-  = @album.description
+  %span#description
+    = @album.description
 
 = link_to 'Photos', album_photos_path(@album)
 \|
