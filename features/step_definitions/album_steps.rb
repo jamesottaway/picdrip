@@ -7,6 +7,18 @@ Given /^I am a Picdrip user$/ do
   end
 end
 
+Given /^I have created an Album$/ do
+  on :albums do |page|
+    page.new_album
+  end
+  on :new_album do |page|
+    page.title = 'Photo Management Cucumber'
+    page.description = 'This album is for the Cucumber features in photos.feature'
+    page.create
+    page.notice.should == 'Album was successfully created.'
+  end
+end
+
 When /^I create an Album$/ do
   on :albums do |page|
   	page.new_album
