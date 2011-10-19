@@ -1,4 +1,3 @@
-@wip
 Feature:
   As a photographer
   I want to manage Photos in Picdrip

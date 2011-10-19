@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/1
   def show
+    @title_prefix = @photo.title
   end
 
   # GET /photos/new

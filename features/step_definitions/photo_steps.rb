@@ -10,3 +10,11 @@ When /^I upload a new photo$/ do
     page.notice.should == 'Photo was successfully created.'
   end
 end
+
+Then /^I should be able to view the Photo$/ do
+  on :photo do |page|
+  	page.browser.title.should =~ /^New Photo/
+  	page.title.should == 'New Photo'
+  	page.description.should == "Wow, it's so easy!"
+  end
+end

@@ -4,10 +4,12 @@
   %img{:src => @photo.medium}
 %p
   %b Title:
-  = @photo.title
+  %span#title
+    = @photo.title
 %p
   %b Description:
-  = @photo.description
+  %span#description
+    = @photo.description
 %p
   %b Uploaded:
   = @photo.uploaded?
