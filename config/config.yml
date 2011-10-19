@@ -1,5 +1,5 @@
 :app:
-  :tmp_dir: ./tmp
+  :tmp_dir: /tmp
   :host: http://localhost:3000
 
 :flickr:
