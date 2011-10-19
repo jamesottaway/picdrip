@@ -23,6 +23,10 @@ module Browser
   def site name
     @site = name
   end
+
+  def root_path
+    File.dirname(__FILE__)+'/../../'
+  end
 end
 
 World Browser

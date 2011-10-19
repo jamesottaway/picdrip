@@ -9,6 +9,8 @@
   %span#description
     = @album.description
 
+= link_to 'New Photo', new_album_photo_path(@album)
+\|
 = link_to 'Photos', album_photos_path(@album)
 \|
 = link_to 'Edit', edit_album_path(@album)
