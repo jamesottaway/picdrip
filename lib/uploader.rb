@@ -70,7 +70,7 @@ class Uploader
   private
   def download url, filename
     open(url) do |http|
-      open(filename, "w") do |file|
+      open(filename, "wb") do |file|
         file.write(http.read)
        end
     end
