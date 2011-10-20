@@ -8,3 +8,11 @@ Feature:
     And I have created an Album
     When I upload a new photo
     Then I should be able to view the Photo
+  
+  @wip
+  Scenario:
+    Given I am a Picdrip user
+    And I have created an Album
+    And I have uploaded a Photo
+    When the Upload job runs
+    Then the photo should have been uploaded
