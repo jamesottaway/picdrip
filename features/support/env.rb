@@ -1,6 +1,6 @@
 $: << File.dirname(__FILE__)+'/../../lib'
 
-WEB_DRIVER = (ENV['WEB_DRIVER'] || :chrome).to_sym
+WEB_DRIVER = (ENV['WEB_DRIVER'] || :firefox).to_sym
 
 require 'watir-webdriver'
 require 'watir-page-helper'
