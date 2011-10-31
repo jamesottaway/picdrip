@@ -7,3 +7,10 @@ Feature: Authentication
     Given I am not currently registered
     When I register
     Then I should be able to log in
+  
+  @wip
+  Scenario:
+    Given I am a Picdrip user
+    And I am not authenticated to Flickr
+    When I authenticate to Flickr
+    Then I should see my Flickr username
