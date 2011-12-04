@@ -1,17 +1,22 @@
 %p
   %b Email:
-  = @user.email
+  %span#email
+    = @user.email
 %p
-  %b Flickr Auth Token:
-  = @user.flickr_auth_token
+  %b Flickr Status:
+  %span#flickr_status
+    = @user.flickr_status
 %p
   %b Twitter Auth Token:
-  = @user.twitter_auth_token
+  %span#twitter_auth_token
+    = @user.twitter_auth_token
 %p
   %b Twitter Auth Secret:
-  = @user.twitter_auth_secret
+  %span#twitter_auth_secret
+    = @user.twitter_auth_secret
 %p
   %b Notifo Username:
-  = @user.notifo_username
+  %span#notifo_username
+    = @user.notifo_username
 
 = link_to 'Edit', edit_user_path

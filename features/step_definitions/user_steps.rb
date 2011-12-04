@@ -16,6 +16,12 @@ Given /^I am not currently registered$/ do
   end
 end
 
+Given /^I am not authenticated to Flickr$/ do
+  visit :user do |page|
+    page.flickr_status.should == 'Still need to login...'
+  end
+end
+
 When /^I register$/ do
   visit :register do |page|
     page.email = 'user@example.com'
