@@ -6,6 +6,7 @@
   %b Flickr Status:
   %span#flickr_status
     = @user.flickr_status
+  = link_to 'Authenticate to Flickr', flickr_auth_path unless @user.flickr_authenticated?
 %p
   %b Twitter Auth Token:
   %span#twitter_auth_token

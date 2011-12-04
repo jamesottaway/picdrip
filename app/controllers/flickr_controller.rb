@@ -1,4 +1,5 @@
 require 'flickraw-cached'
+require 'integrate-flickr-fakr' if Rails.env == 'test'
 
 class FlickrController < ApplicationController
   before_filter :authenticate_user!

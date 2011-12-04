@@ -20,8 +20,6 @@ class User < ActiveRecord::Base
     self.save!
   end
 
-  private
-
   def flickr_authenticated?
     flickr_auth_token != nil
   end

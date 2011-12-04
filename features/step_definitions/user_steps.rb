@@ -32,6 +32,12 @@ When /^I register$/ do
   end
 end
 
+When /^I authenticate to Flickr$/ do
+  on :user do |page|
+    page.authenticate_to_flickr
+  end
+end
+
 Then /^I should be able to log in$/ do
   visit :logout
   on :login do |page|

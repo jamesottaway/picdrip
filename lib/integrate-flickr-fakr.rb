@@ -15,8 +15,8 @@ class Net::HTTP
   end
 end
 
-flickr_fakr = URI.parse 'http://localhost:9000/'
+flickr_fakr = URI.parse 'http://localhost:4567/'
 FlickRaw.const_set :FLICKR_HOST, flickr_fakr
 
-flickr_fakr_auth_url = FlickRaw.const_get(:AUTH_PATH).gsub('http://flickr.com', "http://localhost:9000")
+flickr_fakr_auth_url = FlickRaw.const_get(:AUTH_PATH).gsub('http://flickr.com', 'http://localhost:4567')
 FlickRaw.const_set :AUTH_PATH, flickr_fakr_auth_url
