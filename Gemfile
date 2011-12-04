@@ -15,6 +15,7 @@ gem 'pg'
 gem 'thin'
 
 group :development, :test do
+  gem 'flickr_fakr'
   gem 'heroku'
   gem 'rspec-rails'
   gem 'cucumber'
