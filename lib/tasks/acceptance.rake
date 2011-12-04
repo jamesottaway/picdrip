@@ -1,19 +1,28 @@
 task :acceptance do
-  pid = Process.spawn 'rackup -p 9292 -E test'
-
-  trap("INT") {
-    Process.kill(9, pid) rescue Errno::ESRCH
-    exit 0
-  }
+  picdrip = Process.spawn 'rackup -p 9292 -E test'
   
   until is_port_open?('localhost', '9292') do
-    puts "Waiting for server to start listening..."
+    puts "Waiting for Picdrip to start listening..."
     sleep 1
   end
   
+  flickr_fakr = Process.spawn 'flickr_fakr'
+
+  until is_port_open?('localhost', '4567') do
+    puts "Waiting for FlickrFakr to start listening..."
+    sleep 1
+  end
+
+  trap("INT") {
+    Process.kill(9, picdrip) rescue Errno::ESRCH
+    Process.kill(9, flickr_fakr) rescue Errno::ESRCH
+    exit 0
+  }
+  
   Rake::Task['cucumber'].invoke
   
-  Process.kill 9, pid
+  Process.kill 9, picdrip
+  Process.kill 9, flickr_fakr
 end
 
 private
