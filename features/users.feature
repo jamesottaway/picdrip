@@ -8,9 +8,8 @@ Feature: Authentication
     When I register
     Then I should be able to log in
   
-  @wip
   Scenario:
     Given I am a Picdrip user
     And I am not authenticated to Flickr
     When I authenticate to Flickr
-    Then I should see my Flickr username
+    Then I should see that I have authenticated to Flickr

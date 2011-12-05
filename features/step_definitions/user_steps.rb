@@ -47,3 +47,9 @@ Then /^I should be able to log in$/ do
     page.notice.should == 'Signed in successfully.'
   end
 end
+
+Then /^I should see that I have authenticated to Flickr$/ do
+  on :user do |page|
+    page.flickr_status.should == 'All systems are go!'
+  end
+end
